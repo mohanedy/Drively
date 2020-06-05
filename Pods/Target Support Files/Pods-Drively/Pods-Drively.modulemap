@@ -1,0 +1,6 @@
+framework module Pods_Drively {
+  umbrella header "Pods-Drively-umbrella.h"
+
+  export *
+  module * { export * }
+}
