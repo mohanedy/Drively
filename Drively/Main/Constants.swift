@@ -10,6 +10,7 @@ import Foundation
 struct K {
     struct segues {
         static let loginScreenSegue = "loginScreenSegue"
+        static let riderScreenSegue = "riderScreenSegue"
     }
     
     

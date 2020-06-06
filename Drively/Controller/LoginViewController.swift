@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SCLAlertView
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -15,12 +17,17 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var mainLabel: UILabel!
     var isLogin:Bool = true
-
+    
     @IBOutlet weak var loginRegisterButton: RaisedUIButton!
     
     @IBOutlet weak var accountLabel: UILabel!
     
     @IBOutlet weak var loginRegisterSwitchButton: UIButton!
+    
+    @IBOutlet weak var emailTextField: CustomUITextField!
+    
+    @IBOutlet weak var passwordTextField: CustomUITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,5 +62,37 @@ class LoginViewController: UIViewController {
         updateUI()
     }
     
-
+    @IBAction func loginRegisterPressed(_ sender: Any) {
+        if emailTextField.text != "" && passwordTextField.text != "" {
+            
+            if isLogin {
+                
+                Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!,completion: processAuthRequest(result:error:))
+                
+            }else{
+                
+                Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!,completion: processAuthRequest(result:error:))
+            }
+            
+            
+        }else{
+            displayErrorAlert(errorTitle: "Missing Information", msg: "Please make sure that you entered all required fields")
+        }
+        
+        
+    }
+    
+    func processAuthRequest(result:AuthDataResult?,error:Error?)  {
+        if let safeError = error{
+            self.displayErrorAlert(errorTitle: "Can't Processed", msg: safeError.localizedDescription)
+        }else{
+            
+            performSegue(withIdentifier: K.segues.riderScreenSegue, sender: self)
+        }
+    }
+    
+    func displayErrorAlert(errorTitle:String, msg:String) {
+        SCLAlertView().showError(errorTitle,subTitle: msg)
+    }
+    
 }

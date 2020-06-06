@@ -7,6 +7,7 @@ target 'Drively' do
   pod 'FirebaseFirestore'
   pod 'Firebase/Analytics'
   pod 'FirebaseAuth'
+  pod 'SCLAlertView'
 
   # Pods for Drively
 
