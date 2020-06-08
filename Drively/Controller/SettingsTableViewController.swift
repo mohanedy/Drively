@@ -23,7 +23,7 @@ class SettingsTableViewController: UITableViewController {
             do{
                 try Auth.auth().signOut()
                 print("Signed Out")
-                self.view.window!.rootViewController?.presentedViewController?.dismiss(animated: true, completion: nil)
+                self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
 
             }catch{
                 print(error.localizedDescription)

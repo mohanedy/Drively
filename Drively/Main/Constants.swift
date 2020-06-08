@@ -11,7 +11,14 @@ struct K {
     struct segues {
         static let loginScreenSegue = "loginScreenSegue"
         static let riderScreenSegue = "riderScreenSegue"
+        static let welcomeRiderSegue = "welcomeRiderSegue"
     }
     
-    
+    struct Firestore {
+        static let drivelyRequestCollection = "drively_requests"
+        struct DrivelyRequestCollectionFields {
+            static let email = "email"
+            static let location = "location"
+        }
+    }
 }

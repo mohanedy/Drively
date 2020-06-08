@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RdW-1A-w0D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -107,10 +107,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="RdW-1A-w0D" kind="presentation" identifier="welcomeRiderSegue" modalPresentationStyle="fullScreen" id="FyH-ym-3RN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
+            <point key="canvasLocation" x="141" y="138"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="BDs-n0-mrW">
@@ -262,7 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B2K-DJ-VyW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1213.0434782608697" y="137.94642857142856"/>
+            <point key="canvasLocation" x="1146" y="-205"/>
         </scene>
         <!--Rider View Controller-->
         <scene sceneID="AnN-uS-CEZ">
@@ -439,11 +442,12 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="DuI-tx-8xm" id="jbr-Cv-Pbt"/>
+                        <outlet property="orderDrivelyButton" destination="mQa-Nl-qiY" id="NsP-pk-sCE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKw-r3-N3N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1998.5507246376812" y="137.94642857142856"/>
+            <point key="canvasLocation" x="1932" y="254"/>
         </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="AeO-xr-hWK">
@@ -691,4 +695,7 @@
         <image name="suv" width="58" height="31.666666030883789"/>
         <image name="tuk-tuk" width="38.666667938232422" height="31.666666030883789"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="FyH-ym-3RN"/>
+    </inferredMetricsTieBreakers>
 </document>

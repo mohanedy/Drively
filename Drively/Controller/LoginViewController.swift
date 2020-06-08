@@ -76,7 +76,8 @@ class LoginViewController: UIViewController {
             
             
         }else{
-            displayErrorAlert(errorTitle: "Missing Information", msg: "Please make sure that you entered all required fields")
+            
+            UIServices.displayErrorAlert(errorTitle: "Missing Information", msg: "Please make sure that you entered all required fields")
         }
         
         
@@ -84,15 +85,13 @@ class LoginViewController: UIViewController {
     
     func processAuthRequest(result:AuthDataResult?,error:Error?)  {
         if let safeError = error{
-            self.displayErrorAlert(errorTitle: "Can't Processed", msg: safeError.localizedDescription)
+            UIServices.displayErrorAlert(errorTitle: "Can't Processed", msg: safeError.localizedDescription)
         }else{
             
             performSegue(withIdentifier: K.segues.riderScreenSegue, sender: self)
         }
     }
     
-    func displayErrorAlert(errorTitle:String, msg:String) {
-        SCLAlertView().showError(errorTitle,subTitle: msg)
-    }
+    
     
 }
