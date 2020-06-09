@@ -43,14 +43,13 @@ extension FirestoreServices{
             if let safeError = error{
                 onCompletion(nil, safeError)
             }else{
-                let decoder = JSONDecoder()
-                if let data = try?  JSONSerialization.data(withJSONObject: snapshot!.documents.first!, options: []) {
-                   let request = try? decoder.decode(DrivelyRequest.self, from: data)
-                    
-                    onCompletion(request, nil)
-                    
+                if let firstItem = snapshot?.documents.first{
+                    if let request = try?  firstItem.data(as: DrivelyRequest.self){
+                        onCompletion(request, nil)
+                        return
+                    }
                 }
-                
+                onCompletion(nil,nil)
             }
         })
         

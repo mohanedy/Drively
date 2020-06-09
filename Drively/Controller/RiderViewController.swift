@@ -22,6 +22,7 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initData()
         locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled(){
@@ -32,7 +33,6 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             
         }
         
-        
     }
     
     func initData(){
@@ -40,10 +40,13 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             getCurrentRequest(forEmail: currentUser.email!) { (request, _ ) in
                 if let _ = request{
                     self.isDrivelyCalled = true
-                    self.updateUI()
+                    DispatchQueue.main.async {
+                        self.updateUI()
+                        
+                    }
                 }
             }
-
+            
         }
         
     }
@@ -89,8 +92,7 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         return annotationView
     }
     
-    @IBAction func menuButtonPressed(_ sender: Any) {
-    }
+  
     
     
     @IBAction func orderDrively(_ sender: UIButton) {
@@ -107,7 +109,7 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
                             UIServices.displaySuccessAlert(title: "Done !", msg: "We have ordered drively successfully")
                             self.isDrivelyCalled = true
                             self.updateUI()
-
+                            
                             
                         }
                     }
@@ -130,11 +132,11 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     func updateUI() {
         if isDrivelyCalled{
             orderDrivelyButton.setTitle("Cancel Drively", for: .normal)
-
+            
         }else{
             orderDrivelyButton.setTitle("Drively Now", for: .normal)
-
-
+            
+            
         }
     }
 }

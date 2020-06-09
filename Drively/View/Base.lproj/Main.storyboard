@@ -109,11 +109,12 @@
                     </view>
                     <connections>
                         <segue destination="RdW-1A-w0D" kind="presentation" identifier="welcomeRiderSegue" modalPresentationStyle="fullScreen" id="FyH-ym-3RN"/>
+                        <segue destination="5K8-t4-zkw" kind="presentation" identifier="welcomeDriverSegue" modalPresentationStyle="fullScreen" id="WxC-cG-AeJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141" y="138"/>
+            <point key="canvasLocation" x="1530" y="-988"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="BDs-n0-mrW">
@@ -261,11 +262,82 @@
                         <outlet property="passwordTextField" destination="lHo-0t-IhP" id="btj-XH-Mz2"/>
                         <outlet property="roleSwitch" destination="miO-fd-kbD" id="BVa-UW-NBm"/>
                         <segue destination="RdW-1A-w0D" kind="presentation" identifier="riderScreenSegue" modalPresentationStyle="fullScreen" id="gPb-eP-itv"/>
+                        <segue destination="5K8-t4-zkw" kind="presentation" identifier="loginDriverSegue" modalPresentationStyle="fullScreen" id="JH7-vc-giN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B2K-DJ-VyW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1146" y="-205"/>
+            <point key="canvasLocation" x="1848" y="-252"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="q8E-A6-7Qo">
+            <objects>
+                <tableViewController id="5K8-t4-zkw" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="V57-U1-P25">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="xdg-oY-6N3">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPu-sP-cqU">
+                                    <rect key="frame" x="20" y="10" width="35" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="35" id="8O4-sj-Xqo"/>
+                                        <constraint firstAttribute="height" constant="35" id="Ema-zA-PTl"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" image="open-menu">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17" scale="large" weight="medium"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="backButtonPressed:" destination="Av3-GA-6CU" eventType="touchUpInside" id="Qre-dp-3Jl"/>
+                                        <segue destination="Av3-GA-6CU" kind="presentation" modalPresentationStyle="fullScreen" id="Fqg-qA-kNT"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Uo-v0-I5f">
+                                    <rect key="frame" x="20" y="60" width="394" height="37"/>
+                                    <attributedString key="attributedText">
+                                        <fragment content="Welcome to Drively">
+                                            <attributes>
+                                                <font key="NSFont" size="27" name="Avenir-Medium"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="3Uo-v0-I5f" secondAttribute="trailing" id="Tu8-BL-2NU"/>
+                                <constraint firstItem="OPu-sP-cqU" firstAttribute="leading" secondItem="xdg-oY-6N3" secondAttribute="leading" constant="20" id="a4k-oB-z1h"/>
+                                <constraint firstItem="3Uo-v0-I5f" firstAttribute="top" secondItem="xdg-oY-6N3" secondAttribute="top" constant="60" id="jcd-wZ-c9b"/>
+                                <constraint firstItem="3Uo-v0-I5f" firstAttribute="leading" secondItem="xdg-oY-6N3" secondAttribute="leading" constant="20" id="mxg-Ce-za4"/>
+                                <constraint firstItem="OPu-sP-cqU" firstAttribute="top" secondItem="xdg-oY-6N3" secondAttribute="top" constant="10" id="tZX-pY-PcG"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="0P7-wH-Crm">
+                                <rect key="frame" x="0.0" y="168" width="414" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0P7-wH-Crm" id="9Qw-m3-EhO">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5K8-t4-zkw" id="tTs-Qe-FIQ"/>
+                            <outlet property="delegate" destination="5K8-t4-zkw" id="j6I-AR-1i7"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oUa-7S-orH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2748" y="-252"/>
         </scene>
         <!--Rider View Controller-->
         <scene sceneID="AnN-uS-CEZ">
@@ -421,7 +493,6 @@
                                 <size key="titleShadowOffset" width="50" height="50"/>
                                 <state key="normal" image="open-menu"/>
                                 <connections>
-                                    <action selector="menuButtonPressed:" destination="RdW-1A-w0D" eventType="touchUpInside" id="307-O6-FEq"/>
                                     <segue destination="Av3-GA-6CU" kind="presentation" modalPresentationStyle="fullScreen" id="ah3-nC-soM"/>
                                 </connections>
                             </button>
@@ -447,7 +518,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKw-r3-N3N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1932" y="254"/>
+            <point key="canvasLocation" x="941" y="-252"/>
         </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="AeO-xr-hWK">
@@ -472,6 +543,9 @@
                                     <state key="normal" image="arrow.left" catalog="system">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="large" weight="medium"/>
                                     </state>
+                                    <connections>
+                                        <action selector="backButtonPressed:" destination="Av3-GA-6CU" eventType="touchUpInside" id="1sP-ua-rRT"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Eu-Rj-8Ry">
                                     <rect key="frame" x="20" y="60" width="148.66666666666666" height="55"/>
@@ -681,7 +755,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGo-HM-OHT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3002.898550724638" y="137.94642857142856"/>
+            <point key="canvasLocation" x="1828" y="600"/>
         </scene>
     </scenes>
     <resources>
@@ -696,6 +770,8 @@
         <image name="tuk-tuk" width="38.666667938232422" height="31.666666030883789"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Fqg-qA-kNT"/>
         <segue reference="FyH-ym-3RN"/>
+        <segue reference="WxC-cG-AeJ"/>
     </inferredMetricsTieBreakers>
 </document>
