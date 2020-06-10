@@ -55,6 +55,22 @@ extension FirestoreServices{
         
     }
     
-    
+    func getRequests(forEmail email:String, onCompletion: @escaping (DrivelyRequest?,Error?) -> Void) {
+          firestore.collection(K.Firestore.drivelyRequestCollection).whereField(K.Firestore.DrivelyRequestCollectionFields.email, isEqualTo: email).getDocuments(completion: { (snapshot, error) in
+              if let safeError = error{
+                  onCompletion(nil, safeError)
+              }else{
+                  if let firstItem = snapshot?.documents.first{
+                      if let request = try?  firstItem.data(as: DrivelyRequest.self){
+                          onCompletion(request, nil)
+                          return
+                      }
+                  }
+                  onCompletion(nil,nil)
+              }
+          })
+          
+      }
+      
     
 }

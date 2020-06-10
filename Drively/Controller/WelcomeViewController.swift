@@ -21,11 +21,13 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if Auth.auth().currentUser != nil {
+    
+        if let currentUser =  Auth.auth().currentUser{
           // User is signed in.
-            performSegue(withIdentifier: K.segues.welcomeRiderSegue, sender: self)
-        } else {
-          // No user is signed in.
+            if let userRole = currentUser.displayName{
+                navigateUser(userType: userRole)
+
+            }
         }
     }
 
@@ -43,5 +45,15 @@ class WelcomeViewController: UIViewController {
         performSegue(withIdentifier: K.segues.loginScreenSegue, sender: self)
         
     }
+    
+    func navigateUser(userType:String) {
+        if userType == K.riderRole{
+            performSegue(withIdentifier: K.segues.welcomeRiderSegue, sender: self)
+
+        }else {
+            performSegue(withIdentifier: K.segues.welcomeDriverSegue, sender: self)
+        }
+    }
+
 }
 

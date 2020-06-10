@@ -87,11 +87,39 @@ class LoginViewController: UIViewController {
         if let safeError = error{
             UIServices.displayErrorAlert(errorTitle: "Can't Processed", msg: safeError.localizedDescription)
         }else{
+            if !isLogin{
+                if let currentUser = result?.user{
+                    let request = currentUser.createProfileChangeRequest()
+                    request.displayName = roleSwitch.isOn ? K.riderRole : K.driverRole
+                    request.commitChanges { (error) in
+                        if let err = error{
+                            print(err.localizedDescription)
+                        }else{
+                            self.navigateUser(userType: request.displayName!)
+                        }
+                    }
+                    
+                }
+                
+            }else{
+                if let currentUser = result?.user{
+                    self.navigateUser(userType: currentUser.displayName!)
+                }
+                
+            }
             
-            performSegue(withIdentifier: K.segues.riderScreenSegue, sender: self)
         }
     }
     
-    
+    func navigateUser(userType:String) {
+        if userType == K.riderRole{
+            performSegue(withIdentifier: K.segues.riderScreenSegue, sender: self)
+            
+        }else {
+            performSegue(withIdentifier: K.segues.loginDriverSegue, sender: self)
+        }
+    }
     
 }
+
+

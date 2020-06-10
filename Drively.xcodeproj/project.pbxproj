@@ -28,6 +28,8 @@
 		9E93FF34248EE45600762082 /* FirestoreServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E93FF33248EE45600762082 /* FirestoreServices.swift */; };
 		9E93FF36248EE4BA00762082 /* DrivelyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E93FF35248EE4BA00762082 /* DrivelyRequest.swift */; };
 		9E93FF38248EEE7E00762082 /* UIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E93FF37248EEE7E00762082 /* UIServices.swift */; };
+		9EFCFDFB249162930048DB61 /* TableView+EmptyTableState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFCFDFA249162930048DB61 /* TableView+EmptyTableState.swift */; };
+		9EFCFDFD249165EB0048DB61 /* DriverRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFCFDFC249165EB0048DB61 /* DriverRequestsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		9E93FF33248EE45600762082 /* FirestoreServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServices.swift; sourceTree = "<group>"; };
 		9E93FF35248EE4BA00762082 /* DrivelyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivelyRequest.swift; sourceTree = "<group>"; };
 		9E93FF37248EEE7E00762082 /* UIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIServices.swift; sourceTree = "<group>"; };
+		9EFCFDFA249162930048DB61 /* TableView+EmptyTableState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+EmptyTableState.swift"; sourceTree = "<group>"; };
+		9EFCFDFC249165EB0048DB61 /* DriverRequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRequestsTableViewController.swift; sourceTree = "<group>"; };
 		DE3C818905987CCE41BB777A /* Pods-Drively.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drively.release.xcconfig"; path = "Target Support Files/Pods-Drively/Pods-Drively.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +99,7 @@
 				9E545EE6248AC863001B6481 /* LoginViewController.swift */,
 				9E2CDA67248BEC760084E172 /* RiderViewController.swift */,
 				9E2CDA69248BF1E20084E172 /* SettingsTableViewController.swift */,
+				9EFCFDFC249165EB0048DB61 /* DriverRequestsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 		9E6A4F3A24892F9C0058369F /* Drively */ = {
 			isa = PBXGroup;
 			children = (
+				9EFCFDF92491622F0048DB61 /* Extensions */,
 				9E93FF32248EE43400762082 /* Services */,
 				9E545EEA248ACA9B001B6481 /* Model */,
 				9E545EE4248AC7D6001B6481 /* Main */,
@@ -171,6 +177,14 @@
 				9E93FF37248EEE7E00762082 /* UIServices.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		9EFCFDF92491622F0048DB61 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9EFCFDFA249162930048DB61 /* TableView+EmptyTableState.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EFCFDFB249162930048DB61 /* TableView+EmptyTableState.swift in Sources */,
 				9E6A4F57248972C80058369F /* CardView.swift in Sources */,
 				9E2CDA6A248BF1E20084E172 /* SettingsTableViewController.swift in Sources */,
 				9E93FF36248EE4BA00762082 /* DrivelyRequest.swift in Sources */,
@@ -305,6 +320,7 @@
 				9E93FF38248EEE7E00762082 /* UIServices.swift in Sources */,
 				9E545EE7248AC863001B6481 /* LoginViewController.swift in Sources */,
 				9E545EE3248A7B6E001B6481 /* CircularButton.swift in Sources */,
+				9EFCFDFD249165EB0048DB61 /* DriverRequestsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
