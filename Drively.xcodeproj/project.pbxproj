@@ -28,6 +28,10 @@
 		9E93FF34248EE45600762082 /* FirestoreServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E93FF33248EE45600762082 /* FirestoreServices.swift */; };
 		9E93FF36248EE4BA00762082 /* DrivelyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E93FF35248EE4BA00762082 /* DrivelyRequest.swift */; };
 		9E93FF38248EEE7E00762082 /* UIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E93FF37248EEE7E00762082 /* UIServices.swift */; };
+		9EAFC7E524929490002DE446 /* RequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAFC7E324929490002DE446 /* RequestsTableViewCell.swift */; };
+		9EAFC7E624929490002DE446 /* RequestsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EAFC7E424929490002DE446 /* RequestsTableViewCell.xib */; };
+		9EAFC7E8249296BF002DE446 /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAFC7E7249296BE002DE446 /* CircularView.swift */; };
+		9EAFC7EA2492A85C002DE446 /* Double+FormatToPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAFC7E92492A85C002DE446 /* Double+FormatToPoints.swift */; };
 		9EFCFDFB249162930048DB61 /* TableView+EmptyTableState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFCFDFA249162930048DB61 /* TableView+EmptyTableState.swift */; };
 		9EFCFDFD249165EB0048DB61 /* DriverRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFCFDFC249165EB0048DB61 /* DriverRequestsTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +61,10 @@
 		9E93FF33248EE45600762082 /* FirestoreServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServices.swift; sourceTree = "<group>"; };
 		9E93FF35248EE4BA00762082 /* DrivelyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivelyRequest.swift; sourceTree = "<group>"; };
 		9E93FF37248EEE7E00762082 /* UIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIServices.swift; sourceTree = "<group>"; };
+		9EAFC7E324929490002DE446 /* RequestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsTableViewCell.swift; sourceTree = "<group>"; };
+		9EAFC7E424929490002DE446 /* RequestsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequestsTableViewCell.xib; sourceTree = "<group>"; };
+		9EAFC7E7249296BE002DE446 /* CircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
+		9EAFC7E92492A85C002DE446 /* Double+FormatToPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+FormatToPoints.swift"; sourceTree = "<group>"; };
 		9EFCFDFA249162930048DB61 /* TableView+EmptyTableState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+EmptyTableState.swift"; sourceTree = "<group>"; };
 		9EFCFDFC249165EB0048DB61 /* DriverRequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRequestsTableViewController.swift; sourceTree = "<group>"; };
 		DE3C818905987CCE41BB777A /* Pods-Drively.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drively.release.xcconfig"; path = "Target Support Files/Pods-Drively/Pods-Drively.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,9 +162,12 @@
 				9E6A4F4624892F9E0058369F /* LaunchScreen.storyboard */,
 				9E6A4F50248934400058369F /* RaisedUIButton.swift */,
 				9E6A4F5224893BB70058369F /* OutlineButton.swift */,
+				9EAFC7E7249296BE002DE446 /* CircularView.swift */,
 				9E6A4F54248951730058369F /* CustomUITextField.swift */,
 				9E6A4F58248977700058369F /* RoundedSegmentedControl.swift */,
 				9E545EE2248A7B6E001B6481 /* CircularButton.swift */,
+				9EAFC7E324929490002DE446 /* RequestsTableViewCell.swift */,
+				9EAFC7E424929490002DE446 /* RequestsTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				9EFCFDFA249162930048DB61 /* TableView+EmptyTableState.swift */,
+				9EAFC7E92492A85C002DE446 /* Double+FormatToPoints.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -249,6 +261,7 @@
 			files = (
 				9E6A4F4824892F9E0058369F /* LaunchScreen.storyboard in Resources */,
 				9E6A4F4524892F9E0058369F /* Assets.xcassets in Resources */,
+				9EAFC7E624929490002DE446 /* RequestsTableViewCell.xib in Resources */,
 				9E6A4F4324892F9C0058369F /* Main.storyboard in Resources */,
 				9E54D15D248ADB800004FA3A /* GoogleService-Info.plist in Resources */,
 			);
@@ -303,11 +316,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EAFC7EA2492A85C002DE446 /* Double+FormatToPoints.swift in Sources */,
 				9EFCFDFB249162930048DB61 /* TableView+EmptyTableState.swift in Sources */,
 				9E6A4F57248972C80058369F /* CardView.swift in Sources */,
 				9E2CDA6A248BF1E20084E172 /* SettingsTableViewController.swift in Sources */,
 				9E93FF36248EE4BA00762082 /* DrivelyRequest.swift in Sources */,
 				9E2CDA68248BEC760084E172 /* RiderViewController.swift in Sources */,
+				9EAFC7E8249296BF002DE446 /* CircularView.swift in Sources */,
 				9E545EE9248AC9BB001B6481 /* Constants.swift in Sources */,
 				9E6A4F5324893BB70058369F /* OutlineButton.swift in Sources */,
 				9E6A4F4024892F9C0058369F /* WelcomeViewController.swift in Sources */,
@@ -321,6 +336,7 @@
 				9E545EE7248AC863001B6481 /* LoginViewController.swift in Sources */,
 				9E545EE3248A7B6E001B6481 /* CircularButton.swift in Sources */,
 				9EFCFDFD249165EB0048DB61 /* DriverRequestsTableViewController.swift in Sources */,
+				9EAFC7E524929490002DE446 /* RequestsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

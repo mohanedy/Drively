@@ -11,9 +11,11 @@ extension UITableView{
     
     
     func updateTableView(sectionNum:Int, message:String){
-        let numberOfRows =  self.numberOfRows(inSection: sectionNum)
-        numberOfRows == 0 ? showEmptyState(message) : hideEmptyState()
         self.reloadData()
+
+        let numberOfRows =  self.numberOfRows(inSection: sectionNum)
+        
+        numberOfRows == 0 ? showEmptyState(message) : hideEmptyState()
     }
     
     private func showEmptyState(_ message:String){
@@ -29,6 +31,7 @@ extension UITableView{
     
     private func hideEmptyState(){
         backgroundView = nil
+        self.separatorStyle = .singleLine
     }
     
 }

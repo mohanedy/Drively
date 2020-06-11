@@ -11,6 +11,8 @@ struct K {
     
     static let riderRole = "rider"
     static let driverRole = "driver"
+    static let driverTableViewCellNibName = "RequestsTableViewCell"
+    static let driverTableCellIdentifier = "driverRequestsCell"
     
     struct segues {
         static let loginScreenSegue = "loginScreenSegue"
@@ -18,7 +20,6 @@ struct K {
         static let welcomeRiderSegue = "welcomeRiderSegue"
         static let loginDriverSegue = "loginDriverSegue"
         static let welcomeDriverSegue = "welcomeDriverSegue"
-        
     }
     
     struct Firestore {
