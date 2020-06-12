@@ -36,6 +36,10 @@ class DriverRequestsTableViewController: UITableViewController, FirestoreService
             self.tableView.updateTableView(sectionNum: 0, message: self.emptyStateMessage)
 
         }
+        
+        Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { (_) in
+            self.tableView.reloadData()
+        }
 
     }
     // MARK: - Table view data source
@@ -54,8 +58,11 @@ class DriverRequestsTableViewController: UITableViewController, FirestoreService
         let cell = tableView.dequeueReusableCell(withIdentifier: K.driverTableCellIdentifier, for: indexPath) as! RequestsTableViewCell
         
         let userLocation = CLLocation(latitude: requestList[indexPath.row].location.latitude, longitude: requestList[indexPath.row].location.longitude)
-        let distance = round((userLocation.distance(from: locationManager.location!)/1000)*100)/100
-        cell.distance = distance
+        if let location = locationManager.location{
+            let distance = Utils.calculateDistance(from: userLocation, to: location)
+            cell.distance = distance
+
+        }
         cell.email = requestList[indexPath.row].email
         
         CLGeocoder().reverseGeocodeLocation(userLocation) { (placeMarks, error) in
@@ -68,7 +75,17 @@ class DriverRequestsTableViewController: UITableViewController, FirestoreService
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: K.driverMapSegue, sender: self)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? DriverMapViewController{
+            let index = self.tableView.indexPathForSelectedRow?.row
+            destinationVC.selectedRequest = requestList[index!]
+        }
+    }
     
 }
 

@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseFirestore
+import MapKit
 protocol FirestoreServices {
     
 }
@@ -39,7 +40,7 @@ extension FirestoreServices{
     }
     
     func getCurrentRequest(forEmail email:String, onCompletion: @escaping (DrivelyRequest?,Error?) -> Void) {
-        firestore.collection(K.Firestore.drivelyRequestCollection).whereField(K.Firestore.DrivelyRequestCollectionFields.email, isEqualTo: email).getDocuments(completion: { (snapshot, error) in
+        firestore.collection(K.Firestore.drivelyRequestCollection).whereField(K.Firestore.DrivelyRequestCollectionFields.email, isEqualTo: email).addSnapshotListener({ (snapshot, error) in
             if let safeError = error{
                 onCompletion(nil, safeError)
             }else{
@@ -63,8 +64,10 @@ extension FirestoreServices{
                 if let docs = querySnapshot?.documents{
                     var requestsList:[DrivelyRequest] = []
                     for doc in docs {
-                        if let request = try?  doc.data(as: DrivelyRequest.self){
-                            requestsList.append(request)
+                        var request = try?  doc.data(as: DrivelyRequest.self)
+                        request?.key = doc.documentID
+                        if let safeRequest = request  {
+                            requestsList.append(safeRequest)
                             
                         }
                         
@@ -77,6 +80,15 @@ extension FirestoreServices{
         
     }
     
+    func accept(request:DrivelyRequest, acceptedDriverLocation userLocation:GeoPoint, onCompletion: @escaping (Error?) -> Void)  {
+        firestore.collection(K.Firestore.drivelyRequestCollection).document(request.key!).updateData(["driver":userLocation],completion: onCompletion)
+    }
     
+    
+    func finish(request:DrivelyRequest)  {
+        firestore.collection(K.Firestore.drivelyRequestCollection).document(request.key!).delete()
+    }
     
 }
+
+

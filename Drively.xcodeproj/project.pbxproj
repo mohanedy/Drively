@@ -10,6 +10,9 @@
 		972955E61C9606E4F5359666 /* Pods_Drively.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C925772E092E0CEB89AF947 /* Pods_Drively.framework */; };
 		9E2CDA68248BEC760084E172 /* RiderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2CDA67248BEC760084E172 /* RiderViewController.swift */; };
 		9E2CDA6A248BF1E20084E172 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2CDA69248BF1E20084E172 /* SettingsTableViewController.swift */; };
+		9E46AAF22493C52D00619FF2 /* DriverMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E46AAF12493C52D00619FF2 /* DriverMapViewController.swift */; };
+		9E46AAF42493DBD900619FF2 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E46AAF32493DBD900619FF2 /* Utils.swift */; };
+		9E46AAF6249419B400619FF2 /* GeoPoint+CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E46AAF5249419B400619FF2 /* GeoPoint+CLLocation.swift */; };
 		9E545EE3248A7B6E001B6481 /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E545EE2248A7B6E001B6481 /* CircularButton.swift */; };
 		9E545EE7248AC863001B6481 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E545EE6248AC863001B6481 /* LoginViewController.swift */; };
 		9E545EE9248AC9BB001B6481 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E545EE8248AC9BB001B6481 /* Constants.swift */; };
@@ -41,6 +44,9 @@
 		1C925772E092E0CEB89AF947 /* Pods_Drively.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Drively.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2CDA67248BEC760084E172 /* RiderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderViewController.swift; sourceTree = "<group>"; };
 		9E2CDA69248BF1E20084E172 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		9E46AAF12493C52D00619FF2 /* DriverMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverMapViewController.swift; sourceTree = "<group>"; };
+		9E46AAF32493DBD900619FF2 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		9E46AAF5249419B400619FF2 /* GeoPoint+CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeoPoint+CLLocation.swift"; sourceTree = "<group>"; };
 		9E545EE2248A7B6E001B6481 /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
 		9E545EE6248AC863001B6481 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9E545EE8248AC9BB001B6481 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -108,6 +114,7 @@
 				9E2CDA67248BEC760084E172 /* RiderViewController.swift */,
 				9E2CDA69248BF1E20084E172 /* SettingsTableViewController.swift */,
 				9EFCFDFC249165EB0048DB61 /* DriverRequestsTableViewController.swift */,
+				9E46AAF12493C52D00619FF2 /* DriverMapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,6 +193,7 @@
 			children = (
 				9E93FF33248EE45600762082 /* FirestoreServices.swift */,
 				9E93FF37248EEE7E00762082 /* UIServices.swift */,
+				9E46AAF32493DBD900619FF2 /* Utils.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -195,6 +203,7 @@
 			children = (
 				9EFCFDFA249162930048DB61 /* TableView+EmptyTableState.swift */,
 				9EAFC7E92492A85C002DE446 /* Double+FormatToPoints.swift */,
+				9E46AAF5249419B400619FF2 /* GeoPoint+CLLocation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -320,16 +329,19 @@
 				9EFCFDFB249162930048DB61 /* TableView+EmptyTableState.swift in Sources */,
 				9E6A4F57248972C80058369F /* CardView.swift in Sources */,
 				9E2CDA6A248BF1E20084E172 /* SettingsTableViewController.swift in Sources */,
+				9E46AAF6249419B400619FF2 /* GeoPoint+CLLocation.swift in Sources */,
 				9E93FF36248EE4BA00762082 /* DrivelyRequest.swift in Sources */,
 				9E2CDA68248BEC760084E172 /* RiderViewController.swift in Sources */,
 				9EAFC7E8249296BF002DE446 /* CircularView.swift in Sources */,
 				9E545EE9248AC9BB001B6481 /* Constants.swift in Sources */,
 				9E6A4F5324893BB70058369F /* OutlineButton.swift in Sources */,
+				9E46AAF22493C52D00619FF2 /* DriverMapViewController.swift in Sources */,
 				9E6A4F4024892F9C0058369F /* WelcomeViewController.swift in Sources */,
 				9E6A4F51248934400058369F /* RaisedUIButton.swift in Sources */,
 				9E6A4F3C24892F9C0058369F /* AppDelegate.swift in Sources */,
 				9E6A4F55248951730058369F /* CustomUITextField.swift in Sources */,
 				9E6A4F59248977700058369F /* RoundedSegmentedControl.swift in Sources */,
+				9E46AAF42493DBD900619FF2 /* Utils.swift in Sources */,
 				9E93FF34248EE45600762082 /* FirestoreServices.swift in Sources */,
 				9E6A4F3E24892F9C0058369F /* SceneDelegate.swift in Sources */,
 				9E93FF38248EEE7E00762082 /* UIServices.swift in Sources */,

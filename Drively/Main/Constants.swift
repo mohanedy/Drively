@@ -13,6 +13,7 @@ struct K {
     static let driverRole = "driver"
     static let driverTableViewCellNibName = "RequestsTableViewCell"
     static let driverTableCellIdentifier = "driverRequestsCell"
+    static let driverMapSegue = "driverMapSegue"
     
     struct segues {
         static let loginScreenSegue = "loginScreenSegue"

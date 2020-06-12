@@ -70,7 +70,7 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         // Better to make this class property
-        
+    
         
         var annotationView: MKAnnotationView?
         if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
