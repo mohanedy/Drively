@@ -17,8 +17,14 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     let annotationIdentifier = "AnnotationIdentifier"
     @IBOutlet weak var mapView: MKMapView!
     
+    var annotationView: MKAnnotationView?
+    var driverAnnotation = MKPointAnnotation()
+    var riderAnnotation = MKPointAnnotation()
+
     var locationManager = CLLocationManager()
     var isDrivelyCalled = false
+    var requestState:RideRequestState = .notRequested
+    var driverLocation : CLLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +36,9 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
             mapView.delegate = self
+            riderAnnotation.title = "rider"
+            driverAnnotation.title = "driver"
+            mapView.addAnnotations([riderAnnotation,driverAnnotation])
             
         }
         
@@ -38,8 +47,17 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     func initData(){
         if let currentUser = Auth.auth().currentUser{
             getCurrentRequest(forEmail: currentUser.email!) { (request, _ ) in
-                if let _ = request{
-                    self.isDrivelyCalled = true
+                if let safeRequest = request{
+                    
+                    if safeRequest.driver.latitude == 0 && safeRequest.driver.longitude == 0{
+                        self.requestState = .requested
+                        
+                    }else{
+                        self.requestState = .onGoing
+                        self.driverLocation = safeRequest.driver.toCLLocation()
+                        self.displayAnnotations()
+                    }
+                    
                     DispatchQueue.main.async {
                         self.updateUI()
                         
@@ -51,28 +69,40 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         
     }
     
+    func displayAnnotations(){
+        if let userLocation = locationManager.location{
+            if requestState == .onGoing{
+                updateUI()
+                if let driverLocation = driverLocation{
+                    let latDelta = abs(driverLocation.coordinate.latitude - userLocation.coordinate.latitude) * 2 + 0.005
+                    let lonDelta = abs(driverLocation.coordinate.longitude - userLocation.coordinate.longitude) * 2 + 0.005
+                    
+                    let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta))
+                    mapView.setRegion(region, animated: true)
+                    riderAnnotation.coordinate = userLocation.coordinate
+                    driverAnnotation.coordinate = driverLocation.coordinate
+
+                }
+            }else{
+                
+                let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+                mapView.setRegion(MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
+                riderAnnotation.coordinate = center
+                riderAnnotation.title = "Your location"
+                
+                
+            }
+        }
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        if let coord = manager.location?.coordinate{
-            let center = CLLocationCoordinate2D(latitude: coord.latitude, longitude: coord.longitude)
-            mapView.setRegion(MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
-            mapView.removeAnnotations(mapView.annotations)
-            let currentAnnotation = MKPointAnnotation()
-            currentAnnotation.coordinate = center
-            currentAnnotation.title = "Your location"
-            mapView.addAnnotation(currentAnnotation)
-            
-        }
+        displayAnnotations()
         
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        // Better to make this class property
-    
-        
-        var annotationView: MKAnnotationView?
         if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
             annotationView = dequeuedAnnotationView
             annotationView?.annotation = annotation
@@ -85,19 +115,34 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         
         if let annotationView = annotationView {
             // Configure your annotation view here
+            if annotation.title == "driver"{
+                annotationView.canShowCallout = true
+                      annotationView.image = UIImage(named: "driver-marker")
+            }else{
             annotationView.canShowCallout = true
             annotationView.image = UIImage(named: "location")
+        }
         }
         
         return annotationView
     }
     
-  
+    
     
     
     @IBAction func orderDrively(_ sender: UIButton) {
+        
+        
+        if requestState == .onGoing{
+            requestState = .notRequested
+            updateUI()
+            return
+        }
+        
         if let currentUser = Auth.auth().currentUser{
-            if !isDrivelyCalled{
+            
+            
+            if requestState == .notRequested{
                 
                 if let latestLocation = locationManager.location{
                     
@@ -107,7 +152,7 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
                             UIServices.displayErrorAlert(errorTitle: "Can't order drively", msg: "sorry we can't order drively at the moment check your internet connection \(safeError.localizedDescription)")
                         }else{
                             UIServices.displaySuccessAlert(title: "Done !", msg: "We have ordered drively successfully")
-                            self.isDrivelyCalled = true
+                            self.requestState = .requested
                             self.updateUI()
                             
                             
@@ -120,7 +165,7 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
                         UIServices.displayErrorAlert(errorTitle: "Can't cancel order", msg: "sorry we can't cancel order drively at the moment check your internet connection \(safeError.localizedDescription)")
                     }else{
                         UIServices.displaySuccessAlert(title: "Done !", msg: "We have canceled drively successfully")
-                        self.isDrivelyCalled = false
+                        self.requestState = .notRequested
                         self.updateUI()
                         
                     }
@@ -130,8 +175,16 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     func updateUI() {
-        if isDrivelyCalled{
+        if requestState == .requested{
             orderDrivelyButton.setTitle("Cancel Drively", for: .normal)
+            
+        }else if requestState == .onGoing {
+            if let driverLocation = driverLocation{
+                if let userLocation = locationManager.location{
+                    let distance = Utils.calculateDistance(from: driverLocation, to: userLocation)
+                    orderDrivelyButton.setTitle("The driver is \(distance) KM away", for: .normal)
+                }
+            }
             
         }else{
             orderDrivelyButton.setTitle("Drively Now", for: .normal)
@@ -139,4 +192,8 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             
         }
     }
+}
+
+enum RideRequestState{
+    case requested,notRequested, onGoing
 }

@@ -33,7 +33,11 @@ class DriverMapViewController: UIViewController,FirestoreServices {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         initData()
-        
+        Timer.scheduledTimer(withTimeInterval: 30, repeats: true) { (_) in
+            if let location = self.locationManager.location{
+                self.updateDriverLocation(request: self.selectedRequest!, location: GeoPoint.init(locationCoordinates: location))
+                  }
+        }
     }
     
     func initData() {
@@ -117,6 +121,9 @@ class DriverMapViewController: UIViewController,FirestoreServices {
 
 //MARK: - CLLOCATION DELEGATE METHODS
 extension DriverMapViewController : CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+      
+    }
     
 }
 

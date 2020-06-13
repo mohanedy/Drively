@@ -28,6 +28,7 @@ struct K {
         struct DrivelyRequestCollectionFields {
             static let email = "email"
             static let location = "location"
+            static let driver="driver"
         }
     }
 }

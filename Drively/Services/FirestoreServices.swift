@@ -57,7 +57,7 @@ extension FirestoreServices{
     }
     
     func getRequests(onCompletion: @escaping ([DrivelyRequest],Error?) -> Void) {
-        firestore.collection(K.Firestore.drivelyRequestCollection).addSnapshotListener { (querySnapshot, error) in
+        firestore.collection(K.Firestore.drivelyRequestCollection).whereField(K.Firestore.DrivelyRequestCollectionFields.driver, isEqualTo: GeoPoint(latitude: 0, longitude: 0)).addSnapshotListener { (querySnapshot, error) in
             if let err = error {
                 print(err)
             }else{
@@ -87,6 +87,13 @@ extension FirestoreServices{
     
     func finish(request:DrivelyRequest)  {
         firestore.collection(K.Firestore.drivelyRequestCollection).document(request.key!).delete()
+    }
+    
+    func  updateDriverLocation(request:DrivelyRequest,location:GeoPoint) {
+        if let key = request.key{
+        firestore.collection(K.Firestore.drivelyRequestCollection).document(key).updateData([K.Firestore.DrivelyRequestCollectionFields.driver:location])
+            
+        }
     }
     
 }

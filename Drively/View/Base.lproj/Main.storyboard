@@ -144,7 +144,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="a@a.com" placeholder="Email" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cex-Qn-eSZ" customClass="CustomUITextField" customModule="Drively" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="a@b.com" placeholder="Email" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cex-Qn-eSZ" customClass="CustomUITextField" customModule="Drively" customModuleProvider="target">
                                 <rect key="frame" x="30" y="441" width="354" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -503,7 +503,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DuI-tx-8xm">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="608.33333333333337"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yN-TR-0ox" customClass="CardView" customModule="Drively" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="603.33333333333337" width="414" height="292.66666666666663"/>
@@ -655,13 +655,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="9yN-TR-0ox" firstAttribute="trailing" secondItem="4JK-4L-o7T" secondAttribute="trailing" id="4cu-t2-T67"/>
-                            <constraint firstAttribute="bottom" secondItem="DuI-tx-8xm" secondAttribute="bottom" id="4z2-0P-ZN1"/>
-                            <constraint firstItem="DuI-tx-8xm" firstAttribute="top" secondItem="ONZ-a7-YLq" secondAttribute="top" id="CEb-F1-tcQ"/>
-                            <constraint firstItem="DuI-tx-8xm" firstAttribute="leading" secondItem="4JK-4L-o7T" secondAttribute="leading" id="DEh-dL-Vay"/>
+                            <constraint firstItem="9yN-TR-0ox" firstAttribute="top" secondItem="DuI-tx-8xm" secondAttribute="bottom" constant="-5" id="6IC-TJ-THF"/>
+                            <constraint firstItem="DuI-tx-8xm" firstAttribute="top" secondItem="ONZ-a7-YLq" secondAttribute="top" id="8mu-Q0-Za7"/>
                             <constraint firstItem="CNl-aw-kSR" firstAttribute="top" secondItem="4JK-4L-o7T" secondAttribute="top" constant="20" id="I1q-d4-ZUR"/>
+                            <constraint firstItem="DuI-tx-8xm" firstAttribute="leading" secondItem="4JK-4L-o7T" secondAttribute="leading" id="JpO-cQ-1E7"/>
                             <constraint firstItem="CNl-aw-kSR" firstAttribute="leading" secondItem="4JK-4L-o7T" secondAttribute="leading" constant="20" id="Ka2-XM-W9z"/>
                             <constraint firstItem="9yN-TR-0ox" firstAttribute="leading" secondItem="4JK-4L-o7T" secondAttribute="leading" id="LQ5-og-PFK"/>
-                            <constraint firstItem="DuI-tx-8xm" firstAttribute="trailing" secondItem="4JK-4L-o7T" secondAttribute="trailing" id="rMT-i2-yfv"/>
+                            <constraint firstItem="DuI-tx-8xm" firstAttribute="trailing" secondItem="4JK-4L-o7T" secondAttribute="trailing" id="qIT-1z-y9d"/>
                             <constraint firstAttribute="bottom" secondItem="9yN-TR-0ox" secondAttribute="bottom" id="wlO-pE-7fY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4JK-4L-o7T"/>
@@ -673,7 +673,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKw-r3-N3N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="941" y="-252"/>
+            <point key="canvasLocation" x="940.57971014492762" y="-252.45535714285714"/>
         </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="AeO-xr-hWK">
@@ -928,8 +928,8 @@
         <image name="tuk-tuk" width="38.666667938232422" height="31.666666030883789"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fqg-qA-kNT"/>
-        <segue reference="FyH-ym-3RN"/>
-        <segue reference="WxC-cG-AeJ"/>
+        <segue reference="ah3-nC-soM"/>
+        <segue reference="gPb-eP-itv"/>
+        <segue reference="JH7-vc-giN"/>
     </inferredMetricsTieBreakers>
 </document>

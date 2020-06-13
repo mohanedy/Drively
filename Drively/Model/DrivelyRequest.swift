@@ -14,8 +14,10 @@ struct DrivelyRequest : Codable {
     var key:String?
     let email:String
     let location:GeoPoint
+    var driver:GeoPoint = GeoPoint(latitude: 0, longitude: 0)
+    
     
     private enum CodingKeys: String, CodingKey{
-        case email,location
+        case email, location, driver
     }
 }
