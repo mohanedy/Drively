@@ -52,7 +52,7 @@ and a lot more 😊 ...
 
 ## 📱 Screenshots
 
-<img src="https://imgur.com/AFUOpYE.gif" alt="Preview"  height=350>&nbsp; <img src="https://imgur.com/svg0u76.gif" alt="Preview"  height=350>&nbsp; <img src="https://imgur.com/32XNBIi.gif" alt="Preview" height=350>&nbsp;<img src="https://imgur.com/Pk73WJS.png?1" alt="Drively" height=350> 
+ &nbsp;<img src="https://imgur.com/AFUOpYE.gif" alt="Preview"  height=350>&nbsp; <img src="https://imgur.com/svg0u76.gif" alt="Preview"  height=350>&nbsp; <img src="https://imgur.com/32XNBIi.gif" alt="Preview" height=350><br><img src="https://imgur.com/Pk73WJS.png?1" alt="Drively" height=350> 
   &nbsp; <img src="https://imgur.com/LK8SSAz.png?1" alt="Drively"  height=350>&nbsp;<img src="https://imgur.com/jCBMEnV.png?1" alt="Drively"  height=350>&nbsp;<img src="https://imgur.com/qT8ZOjB.png?1" alt="Drively"  height=350>&nbsp;<img src="https://imgur.com/0Ze0gSG.png?1" alt="Drively"  height=350>&nbsp;<img src="https://imgur.com/DoanxmD.png?1" alt="Drively"  height=350>&nbsp;<img src="https://imgur.com/jnCQd5c.png?1" alt="Drively" height=350>&nbsp;<img src="https://imgur.com/z2DY33W.png?1" alt="Drively"  height=350> &nbsp;<img src="https://imgur.com/m4Y8LNe.png?1" alt="Drively"  height=350>&nbsp;<img src="https://imgur.com/6pYllvl.png?1" alt="Drively"  height=350> &nbsp;<img src="https://imgur.com/E85rZU1.png?1" alt="Drively"  height=350>&nbsp;<img src="https://imgur.com/KHGFUf3.png?1" alt="Drively"  height=350>&nbsp; 
 
 
